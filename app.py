@@ -13,10 +13,10 @@ st.set_page_config(page_title="Predict-to-Prevent: AI Dashboard", layout="wide",
 
 st.markdown("""
     <style>
-    .main { background-color: #f4f7f6; }
-    .header-card { background-color: #1e3d59; color: white; padding: 25px; border-radius: 15px; text-align: center; margin-bottom: 20px; }
-    .stButton>button { background-color: #ff6e40; color: white; border-radius: 8px; font-weight: bold; width: 100%; height: 3.5em; }
-    .stMetric { background-color: #ffffff; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+    .main { background-color: #F0F4F8; } /* Light Clinical Blue-Grey */
+    .header-card { background-color: #1A365D; color: white; padding: 25px; border-radius: 12px; text-align: center; margin-bottom: 20px; }
+    .report-header { background-color: #FFFFFF; padding: 10px; border-radius: 8px; border-left: 6px solid #2B6CB0; margin-top: 20px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+    .stMetric { background-color: #FFFFFF; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-bottom: 3px solid #2B6CB0; }
     </style>
     """, unsafe_allow_html=True)
 
@@ -27,6 +27,7 @@ lang = st.sidebar.radio("Language / ভাষা", ["English", "বাংলা"
 with st.sidebar:
     st.header("Patient Profile / রোগীর তথ্য")
     age = st.slider("Age / বয়স", 18, 100, 35)
+    gender = st.selectbox("Gender / লিঙ্গ", ["Male", "Female"] if lang == "English" else ["পুরুষ", "মহিলা"])
     residence = st.selectbox("Residence / এলাকা", ["Urban", "Rural"])
     htn = st.radio("Hypertension / উচ্চ রক্তচাপ", ["Yes", "No"])
     
@@ -65,7 +66,7 @@ st.markdown(f"""
 # ৬. সিমুলেশন স্লাইডার
 st.subheader(" Evidence-Based Risk Mitigation Simulation")
 loss_goal = st.select_slider("Select weight loss goal (kg):", options=list(range(0, 21)))
-
+st.markdown("<div class='report-header'><h3>📊 Causal & Economic Analysis Report</h3></div>", unsafe_allow_html=True)
 if st.button("Generate Causal & Economic Report"):
     # রিস্ক ক্যালকুলেশন লজিক
     base_risk = 18.0 + (current_bmi * 0.45) + (age * 0.12)
@@ -96,14 +97,14 @@ if st.button("Generate Causal & Economic Report"):
     fig.add_trace(
         go.Scatter(x=stages, y=[base_risk, future_risk], name="Risk (%)", 
                    mode='lines+markers+text', text=[f"{base_risk:.1f}%", f"{future_risk:.1f}%"],
-                   textposition="top center", line=dict(color="blue", width=4)),
+                   textposition="top center", line=dict(color="#2B6CB0", width=4)),
         secondary_y=False,
     )
 
     fig.add_trace(
         go.Scatter(x=stages, y=[current_bmi, new_bmi], name="BMI Level", 
                    mode='lines+markers+text', text=[f"{current_bmi:.1f}", f"{new_bmi:.1f}"],
-                   textposition="bottom center", line=dict(color="red", width=4)),
+                   textposition="bottom center", line=dict(color="#38A169", width=4)),
         secondary_y=True,
     )
 
