@@ -42,7 +42,7 @@ with st.sidebar:
     height_m = ((feet * 12) + inches) * 0.0254
     current_bmi = weight / (height_m ** 2)
     
-    st.markdown(f"### Current BMI: <span style='color:#ff6e40'>{current_bmi:.2f}</span>", unsafe_allow_html=True)
+    st.markdown(f"### Current BMI: <span style='color:skyblue'>{current_bmi:.2f}</span>", unsafe_allow_html=True)
     if current_bmi < 18.5: st.warning("Underweight")
     elif 18.5 <= current_bmi < 25: st.success("Normal Weight")
     elif 25 <= current_bmi < 30: st.warning("Overweight")
