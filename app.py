@@ -97,14 +97,14 @@ if st.button("Generate Causal & Economic Report"):
     fig.add_trace(
         go.Scatter(x=stages, y=[base_risk, future_risk], name="Risk (%)", 
                    mode='lines+markers+text', text=[f"{base_risk:.1f}%", f"{future_risk:.1f}%"],
-                   textposition="top center", line=dict(color="#2B6CB0", width=4)),
+                   textposition="top center", line=dict(color="#38A169", width=4)),
         secondary_y=False,
     )
 
     fig.add_trace(
         go.Scatter(x=stages, y=[current_bmi, new_bmi], name="BMI Level", 
                    mode='lines+markers+text', text=[f"{current_bmi:.1f}", f"{new_bmi:.1f}"],
-                   textposition="bottom center", line=dict(color="#38A169", width=4)),
+                   textposition="bottom center", line=dict(color="#2B6CB0", width=4)),
         secondary_y=True,
     )
 
