@@ -19,29 +19,7 @@ st.markdown("""
     .stMetric { background-color: #FFFFFF; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-bottom: 3px solid #2B6CB0; }
     </style>
     """, unsafe_allow_html=True)
-st.markdown("""
-    <style>
-    /* স্লাইডারের ট্রাক (পুরো লাইন) এর রঙ */
-    .stSlider [data-baseweb="slider"] {
-        background-color: #E2E8F0; /* হালকা গ্রে */
-        height: 6px;
-        border-radius: 5px;
-    }
-    
-    /* স্লাইডারের সিলেকশন বা যে অংশটুকু টেনেছেন (Active Bar) */
-    .stSlider [data-testid="stTickBarMin"] + div {
-        background-color: #2B6CB0 !important; /* প্রফেশনাল ব্লু */
-    }
-    
-    /* স্লাইডারের হাতল বা গোল বাটন (Thumb) এর রঙ */
-    .stSlider [role="slider"] {
-        background-color: #1A365D; /* গাঢ় নীল */
-        border: 2px solid #FFFFFF;
-        width: 20px;
-        height: 20px;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+
 
 
 # ৩. ল্যাঙ্গুয়েজ টগল (Sidebar)
