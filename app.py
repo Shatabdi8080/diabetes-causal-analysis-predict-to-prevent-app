@@ -43,10 +43,17 @@ with st.sidebar:
     current_bmi = weight / (height_m ** 2)
     
     st.markdown(f"### Current BMI: <span style='color:#040273'>{current_bmi:.2f}</span>", unsafe_allow_html=True)
-    if current_bmi < 18.5: st.warning("Underweight")
-    elif 18.5 <= current_bmi < 25: st.success("Normal Weight")
-    elif 25 <= current_bmi < 30: st.warning("Overweight")
-    else: st.error("Obese")
+    # BMI স্ট্যাটাস এবং কাস্টম কালার
+if current_bmi < 18.5:
+    st.sidebar.markdown(f"<p style='color: #FFA500; font-weight: bold;'>Underweight</p>", unsafe_allow_html=True)
+elif 18.5 <= current_bmi < 25:
+    st.sidebar.markdown(f"<p style='color: #2E7D32; font-weight: bold;'>Normal Weight</p>", unsafe_allow_html=True)
+elif 25 <= current_bmi < 30:
+    # এখানে Overweight লেখার রঙ পরিবর্তন করা হয়েছে (যেমন: গাঢ় কমলা বা লালচে)
+    st.sidebar.markdown(f"<p style='color: #D32F2F; font-weight: bold;'>Overweight</p>", unsafe_allow_html=True)
+else:
+    st.sidebar.markdown(f"<p style='color: #B71C1C; font-weight: bold;'>Obese</p>", unsafe_allow_html=True)
+
 
 # ৫. মেইন ড্যাশবোর্ড হেডার
 if lang == "English":
