@@ -11,14 +11,41 @@ ANNUAL_SAVINGS_ESTIMATE = 25473
 # ২. পেজ সেটিংস ও প্রিমিয়াম থিম
 st.set_page_config(page_title="Predict-to-Prevent: AI Dashboard", layout="wide", page_icon="🩺")
 
+# Updated CSS for Total Background Change
 st.markdown("""
     <style>
-    .main { background-color: #F0F4F8; } /* Light Clinical Blue-Grey */
-    .header-card { background-color: #1A365D; color: white; padding: 25px; border-radius: 12px; text-align: center; margin-bottom: 20px; }
-    .report-header { background-color: #FFFFFF; padding: 10px; border-radius: 8px; border-left: 6px solid #2B6CB0; margin-top: 20px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-    .stMetric { background-color: #FFFFFF; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-bottom: 3px solid #2B6CB0; }
+    /* This changes the main background */
+    .stApp {
+        background-color: #E3F2FD; 
+    }
+    
+    /* This changes the sidebar background to match */
+    [data-testid="stSidebar"] {
+        background-color: #F8FAFC;
+        border-right: 1px solid #CBD5E1;
+    }
+
+    .header-card { 
+        background-color: #1A365D; 
+        color: white; 
+        padding: 25px; 
+        border-radius: 12px; 
+        text-align: center; 
+        margin-bottom: 20px; 
+    }
+
+    .report-header { 
+        background-color: #FFFFFF; 
+        padding: 10px; 
+        border-radius: 8px; 
+        border-left: 6px solid #2B6CB0; 
+        margin-top: 20px; 
+        margin-bottom: 20px; 
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+    }
     </style>
     """, unsafe_allow_html=True)
+
 
 # ৩. ল্যাঙ্গুয়েজ টগল (Sidebar)
 lang = st.sidebar.radio("Language / ভাষা", ["English", "বাংলা"])
@@ -66,7 +93,7 @@ st.markdown(f"""
 # ৬. সিমুলেশন স্লাইডার
 st.subheader(" Evidence-Based Risk Mitigation Simulation")
 loss_goal = st.select_slider("Select weight loss goal (kg):", options=list(range(0, 21)))
-st.markdown("<div class='report-header'><h3>📊 Causal & Economic Analysis Report</h3></div>", unsafe_allow_html=True)
+
 if st.button("Generate Causal & Economic Report"):
     # রিস্ক ক্যালকুলেশন লজিক
     base_risk = 18.0 + (current_bmi * 0.45) + (age * 0.12)
