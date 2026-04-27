@@ -94,7 +94,7 @@ if st.button("Generate Causal & Economic Report"):
     col1, col2, col3 = st.columns(3)
     col1.metric("Present Risk Profile", f"{base_risk:.1f}%")
     col2.metric("Projected Future Risk", f"{future_risk:.1f}%", delta=f"-{reduction:.2f}%")
-    col3.metric("Est. Healthcare Savings (BDT)", f"৳ {int(total_savings):,}")
+    col3.metric("Est. Healthcare Annual Savings (BDT)", f"৳ {int(total_savings):,}")
 
     # ৮. Dual-Axis Line Graph
     st.markdown("---")
