@@ -16,17 +16,17 @@ st.markdown("""
     <style>
     /* This changes the main background */
     .stApp {
-        background-color: #78AAC3; 
+        background-color: offwhite; 
     }
     
     /* This changes the sidebar background to match */
     [data-testid="stSidebar"] {
-        background-color: #F8FAFC;
+        background-color: teal;
         border-right: 1px solid #CBD5E1;
     }
 
     .header-card { 
-        background-color: #1A365D; 
+        background-color: navyblue; 
         color: white; 
         padding: 25px; 
         border-radius: 12px; 
